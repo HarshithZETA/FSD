@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+let student = {
+  name: "Harshith",
+  grade: 85,
+  subjects: ["Math", "CS", "Physics"],
+  displayInfo() {
+    console.log(this.name, this.grade, this.subjects);
+  }
+};
+
+student.result = student.grade >= 40;
+
+student.displayInfo();
+for (let key in student)
+  console.log(key + " : " + student[key]);
+</script>
+
+</body>
+</html>
