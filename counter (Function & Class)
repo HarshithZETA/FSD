@@ -1,0 +1,54 @@
+import React, { useState, useEffect, Component } from "react";
+
+/* Function Component */
+function FuncCounter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setCount(0); // initialize to 0
+  }, []);
+
+  return (
+    <>
+      <h3>Function Counter</h3>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(count - 1)}>-</button>
+    </>
+  );
+}
+
+/* Class Component */
+class ClassCounter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  componentDidMount() {
+    this.setState({ count: 0 }); // initialize to 0
+  }
+
+  render() {
+    return (
+      <>
+        <h3>Class Counter</h3>
+        <p>Count: {this.state.count}</p>
+        <button onClick={() => this.setState({ count: this.state.count * 2 })}>
+          Double
+        </button>
+      </>
+    );
+  }
+}
+
+export default function App() {
+  return (
+    <>
+      <h2>Counter Application</h2>
+      <FuncCounter />
+      <hr />
+      <ClassCounter />
+    </>
+  );
+}
