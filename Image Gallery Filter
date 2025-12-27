@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Filter Gallery</title>
+<style>
+  img { width:120px; margin:5px; }
+</style>
+</head>
+<body>
+
+<button onclick="filter('all')">All</button>
+<button onclick="filter('nature')">Nature</button>
+<button onclick="filter('animal')">Animal</button>
+
+<br><br>
+
+<img src="img1.jpg" data-tag="nature">
+<img src="img2.jpg" data-tag="animal">
+<img src="img3.jpg" data-tag="nature">
+<img src="img4.jpg" data-tag="animal">
+
+<script>
+function filter(tag) {
+  let imgs = document.querySelectorAll("img");
+  imgs.forEach(img => {
+    img.style.display =
+      (tag == "all" || img.dataset.tag == tag) ? "inline" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
