@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>UL–LI Event Demo</h3>
+
+<ul id="list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+
+<button onclick="addItem()">Add Item</button>
+<button onclick="removeItem()">Remove Item</button>
+
+<script>
+let ul = document.getElementById("list");
+let count = 3;
+
+ul.addEventListener("click", function(e) {
+  alert("Clicked item: " + e.target.innerText);
+});
+
+function addItem() {
+  let li = document.createElement("li");
+  li.innerText = "Item " + count++;
+  ul.appendChild(li);
+}
+
+function removeItem() {
+  if (ul.lastChild)
+    ul.removeChild(ul.lastChild);
+}
+</script>
+
+</body>
+</html>
