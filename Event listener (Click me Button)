@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="btn">Click Me</button><br><br>
+<img id="img" src="img.jpg" width="150">
+
+<script>
+document.getElementById("btn").addEventListener("click", e =>
+  console.log("Button clicked :", e.target)
+);
+
+document.getElementById("img").addEventListener("mouseover", e =>
+  e.target.style.border = "2px solid red"
+);
+
+document.addEventListener("keydown", e =>
+  console.log("Key pressed :", e.key)
+);
+</script>
+
+</body>
+</html>
