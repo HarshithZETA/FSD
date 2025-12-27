@@ -1,0 +1,44 @@
+import { useState } from "react";
+
+function IssueList({ data }) {
+  return (
+    <ul>
+      {data.map((item, i) => (
+        <li key={i}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default function App() {
+  const [issues, setIssues] = useState(["Login bug", "UI error"]);
+  const [newIssue, setNewIssue] = useState("");
+  const [search, setSearch] = useState("");
+
+  const add = () => {
+    if (newIssue) setIssues([...issues, newIssue]);
+  };
+
+  return (
+    <>
+      <h2>Issue Tracker</h2>
+
+      <input
+        placeholder="Add Issue"
+        onChange={e => setNewIssue(e.target.value)}
+      />
+      <button onClick={add}>Add</button>
+
+      <br /><br />
+
+      <input
+        placeholder="Filter Issue"
+        onChange={e => setSearch(e.target.value)}
+      />
+
+      <IssueList
+        data={issues.filter(i => i.includes(search))}
+      />
+    </>
+  );
+}
